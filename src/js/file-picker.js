@@ -314,6 +314,9 @@ class FilePicker {
         this._clearResult()
         this._spinnerShow()
 
+        if(!this._config.search)
+            return
+
         this._config.search(query, this._config.type, res => {
             if(query != this._query)
                 return
@@ -344,10 +347,12 @@ class FilePicker {
     }
 
     _spinnerHide(){
-        this._el.dhSearchSpinner.style.display = 'none'
+        if(this._el.dhSearchSpinner)
+            this._el.dhSearchSpinner.style.display = 'none'
     }
     _spinnerShow(){
-        this._el.dhSearchSpinner.style.display = 'block'
+        if(this._el.dhSearchSpinner)
+            this._el.dhSearchSpinner.style.display = 'block'
     }
 }
 

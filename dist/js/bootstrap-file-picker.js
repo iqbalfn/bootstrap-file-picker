@@ -1,5 +1,5 @@
 /*!
-  * Bootstrap File Picker v0.0.2 (https://iqbalfn.github.io/bootstrap-file-picker/)
+  * Bootstrap File Picker v0.0.3 (https://iqbalfn.github.io/bootstrap-file-picker/)
   * Copyright 2019 Iqbal Fauzi
   * Licensed under MIT (https://github.com/iqbalfn/bootstrap-file-picker/blob/master/LICENSE)
   */
@@ -290,6 +290,8 @@
 
         this._spinnerShow();
 
+        if (!this._config.search) return;
+
         this._config.search(query, this._config.type, function (res) {
           if (query != _this3._query) return;
 
@@ -317,11 +319,11 @@
       };
 
       _proto._spinnerHide = function _spinnerHide() {
-        this._el.dhSearchSpinner.style.display = 'none';
+        if (this._el.dhSearchSpinner) this._el.dhSearchSpinner.style.display = 'none';
       };
 
       _proto._spinnerShow = function _spinnerShow() {
-        this._el.dhSearchSpinner.style.display = 'block';
+        if (this._el.dhSearchSpinner) this._el.dhSearchSpinner.style.display = 'block';
       };
 
       return FilePicker;
